@@ -1,0 +1,82 @@
+.timer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  font-variant-numeric: tabular-nums;
+}
+.timer-unit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.timer-unit + .timer-unit::before {
+  content: ':';
+  position: absolute;
+  left: -10px;
+  top: 0.08em;
+  font-size: 27px;
+  font-weight: 300;
+  color: color-mix(in srgb, var(--muted) 35%, transparent);
+}
+.timer-number {
+  font-size: clamp(30px, 3.8vw, 52px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+}
+.timer-label {
+  text-transform: uppercase;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.timer-compact .timer-number {
+  font-size: 30px;
+}
+.timer-compact .timer-label {
+  font-size: 7px;
+}
+.timer-compact {
+  gap: 12px;
+}
+.timer-compact .timer-unit + .timer-unit::before {
+  font-size: 21px;
+  left: -8px;
+}
+.present-timer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 12px 0;
+  gap: 9px;
+  text-align: center;
+}
+.present-spark {
+  color: var(--event-accent, var(--primary));
+  font-size: 35px;
+  line-height: 1;
+}
+.present-timer strong {
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  font-weight: 450;
+}
+.present-timer > span:last-child {
+  color: var(--muted);
+  font-size: 11px;
+}
+.present-timer.compact {
+  padding-block: 0;
+  gap: 4px;
+}
+.present-timer.compact .present-spark {
+  display: none;
+}
+.present-timer.compact strong {
+  font-size: 21px;
+}
+.present-timer.compact > span:last-child {
+  font-size: 9px;
+}
